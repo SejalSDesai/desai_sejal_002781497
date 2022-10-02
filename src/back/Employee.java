@@ -100,8 +100,12 @@ public class Employee {
         this.email = email;
     }
 
-    public Object startdate() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    public Object startdate() {
+//        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+//    }
+ @Override
+    public  String toString(){
+        return date;
     }
     
     

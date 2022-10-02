@@ -19,17 +19,21 @@ public class EmployeeData {
         
     }
 
-    public ArrayList<Employee> getHistory() {
+    public ArrayList<Employee> getdata() {
         return data;
     }
 
-    public void setHistory(ArrayList<Employee> history) {
+    public void setdata(ArrayList<Employee> history) {
         this.data = history;
     }
     public Employee addnewdata(){
        Employee newdata = new Employee();
        data.add(newdata);
        return newdata;
+    }
+    public void deletedata(Employee ed){
+        data.remove(ed);
+        
     }
     
     
