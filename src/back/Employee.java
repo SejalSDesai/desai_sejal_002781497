@@ -104,8 +104,9 @@ public class Employee {
 //        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
 //    }
  @Override
-    public  String toString(){
-        return date;
+    public  String toString()
+    {
+        return getClass().getName() + "@" + Integer.toHexString(hashCode());
     }
     
     
