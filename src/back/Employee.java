@@ -4,6 +4,8 @@
  */
 package back;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Adinath
@@ -19,7 +21,18 @@ public class Employee {
     private String teamInfo;
     private int cellPhoneNo;
     private String email;
+    private ImageIcon photo;
 
+    public ImageIcon getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(ImageIcon photo) {
+        this.photo = photo;
+    }
+    
+    
+    
     public String getName() {
         return name;
     }
