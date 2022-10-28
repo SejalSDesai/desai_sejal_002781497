@@ -37,12 +37,17 @@ public class LoginFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        panelLoginPage.setBackground(new java.awt.Color(153, 153, 153));
         panelLoginPage.setBorder(javax.swing.BorderFactory.createTitledBorder("Login Page"));
+        panelLoginPage.setForeground(new java.awt.Color(153, 153, 153));
 
+        lblEmail.setBackground(new java.awt.Color(102, 102, 102));
+        lblEmail.setForeground(new java.awt.Color(51, 51, 51));
         lblEmail.setText("Email ID:");
 
         lblPassword.setText("Password:");
 
+        btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

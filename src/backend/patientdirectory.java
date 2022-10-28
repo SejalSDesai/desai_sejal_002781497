@@ -4,14 +4,22 @@
  */
 package backend;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sej
  */
 public class patientdirectory {
-
-    public Iterable<patient> getpatientdirect() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+  public static ArrayList<patient>patientdirect = new ArrayList<patient>();
+  public static ArrayList<patient> getpatientdirect(){
+      return patientdirect;
+  }
+  public static void setpatientdirect(ArrayList<patient> patientdirect){
+      patientdirectory.patientdirect = patientdirect;
+      
+  }
+  
+   
     
 }

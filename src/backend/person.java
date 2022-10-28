@@ -9,63 +9,19 @@ package backend;
  * @author sej
  */
 public class person {
-    public String name;
-    public int Age;
-    public long contact;
-    public String emailid;
-    public String gender;
-    public String personId;
-    public long house;
-    public House = residence house();
-    public String communityname;
-    public String NewCity;
-    public String State;
-    public String residence;
-    public String PersonId; 
+  public String name;
+  public int age;
+  public long contactNo;
+  public String emailId;
+  public String gender;
+  public int personId;
+  public String userName;
+  public String pwd;
+  public String repwd;
+  public House residence = new House();
+  public person(){
+  }
 
-    public String getResidence() {
-        return residence;
-    }
-
-    public void setResidence(String residence) {
-        this.residence = residence;
-    }
-
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
-
-    public long getHouse() {
-        return house;
-    }
-
-    public void setHouse(long house) {
-        this.house = house;
-    }
-
-    public String getCommunityname() {
-        return communityname;
-    }
-
-    public void setCommunityname(String communityname) {
-        this.communityname = communityname;
-    }
-
-    public String getNewCity() {
-        return NewCity;
-    }
-
-    public void setNewCity(String NewCity) {
-        this.NewCity = NewCity;
-    }
-
-    public String getState() {
-        return State;
-    }
-
-    public void setState(String State) {
-        this.State = State;
-    }
     public String getName() {
         return name;
     }
@@ -75,27 +31,27 @@ public class person {
     }
 
     public int getAge() {
-        return Age;
+        return age;
     }
 
-    public void setAge(int Age) {
-        this.Age = Age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public long getContact() {
-        return contact;
+    public long getContactNo() {
+        return contactNo;
     }
 
-    public void setContact(long contact) {
-        this.contact = contact;
+    public void setContactNo(long contactNo) {
+        this.contactNo = contactNo;
     }
 
-    public String getEmailid() {
-        return emailid;
+    public String getEmailId() {
+        return emailId;
     }
 
-    public void setEmailid(String emailid) {
-        this.emailid = emailid;
+    public void setEmailId(String emailId) {
+        this.emailId = emailId;
     }
 
     public String getGender() {
@@ -106,13 +62,66 @@ public class person {
         this.gender = gender;
     }
 
-    public Object getPersonId() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public int getPersonId() {
+        return personId;
     }
-   
+
+    public void setPersonId(int personId) {
+        this.personId = personId;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPwd() {
+        return pwd;
+    }
+
+    public void setPwd(String pwd) {
+        this.pwd = pwd;
+    }
+
+    public String getRepwd() {
+        return repwd;
+    }
+
+    public void setRepwd(String repwd) {
+        this.repwd = repwd;
+    }
+
+    public House getResidence() {
+        return residence;
+    }
+
+    public void setResidence(House residence) {
+        this.residence = residence;
+    }
+    @Override
+    public String toString(){
+        return name;
+    }
+    public person(int personID,String name,int age,long contactNo,String emaiId,String gender,int houseNo,int zip,String communityName,String newCity,String state){
+        this.personId=personID;
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+        this.contactNo=contactNo;
+        this.emailId=emailId;
+        this.residence.houseNo=houseNo;
+        this.residence.Zip=zip;
+        this.residence.communityName=communityName;
+        this.residence.newCity=newCity;
+        this.residence.state=state;
+        
+    }
+  }
     
     
     
     
-    
-}
+

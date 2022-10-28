@@ -37,13 +37,16 @@ public class LoginBox extends javax.swing.JDialog {
         btnLogin = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
 
+        panelLoginPage.setBackground(new java.awt.Color(153, 153, 153));
         panelLoginPage.setBorder(javax.swing.BorderFactory.createTitledBorder("Login Page"));
 
         lblEmail.setText("Email ID:");
 
         lblPassword.setText("Password:");
 
+        btnLogin.setBackground(new java.awt.Color(204, 204, 204));
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

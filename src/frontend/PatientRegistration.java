@@ -18,7 +18,6 @@ import javax.swing.table.DefaultTableModel;
  */
 public class PatientRegistration extends javax.swing.JFrame {
     person per = new person();
-    vitalsigns vitalsigns = new vitalsigns();
     vitalsignshistory vitaldirect;
     patientdirectory patientdirect;
     personDirectory persondirect;
@@ -33,7 +32,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         this.patientdirect=patientdirect;
         this.vitaldirect=vitaldirect;
         patientDispTable();
-        personDispTable();
+       
         
         
     }
@@ -90,8 +89,6 @@ public class PatientRegistration extends javax.swing.JFrame {
         viewbtn = new javax.swing.JButton();
         updatebtn = new javax.swing.JButton();
         deletebtn = new javax.swing.JButton();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        personTable = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel23 = new javax.swing.JLabel();
@@ -101,17 +98,20 @@ public class PatientRegistration extends javax.swing.JFrame {
         vitalsBP = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         vitalsTemp = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        patientId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1029, 989));
 
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.setPreferredSize(new java.awt.Dimension(1029, 989));
         jPanel1.setRequestFocusEnabled(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 15)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
         jLabel1.setText("Patient Registration");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 34, -1, -1));
 
@@ -200,64 +200,74 @@ public class PatientRegistration extends javax.swing.JFrame {
         });
         jPanel1.add(patientReenterpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
 
+        registrationbtn.setBackground(new java.awt.Color(204, 204, 204));
         registrationbtn.setText("REGISTER");
         registrationbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registrationbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(registrationbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 550, -1, -1));
+        jPanel1.add(registrationbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, -1, -1));
 
+        patientTable.setBackground(new java.awt.Color(204, 204, 204));
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "name", "person id", "contact no", "email id", "gender", "age", "house", "community", "city", "state"
+                "name", "person id", "contact no", "email id", "gender", "age", "house", "community", "city", "state", "BloodPressure", "BodyTemperature"
             }
         ));
+        patientTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        patientTable.setGridColor(new java.awt.Color(51, 51, 51));
+        patientTable.setSelectionForeground(new java.awt.Color(0, 255, 255));
         jScrollPane2.setViewportView(patientTable);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 970, 160));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 970, 160));
 
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 580, 1030, -1));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 1030, -1));
 
+        viewbtn.setBackground(new java.awt.Color(204, 204, 204));
         viewbtn.setText("view");
-        jPanel1.add(viewbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 550, -1, -1));
-
-        updatebtn.setText("update");
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, -1, -1));
-
-        deletebtn.setText("delete");
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 550, -1, -1));
-
-        personTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "name", "patient id", "contact no", "email id", "gender", "age ", "community", "city", "blood group", "height", "weight"
+        viewbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                viewbtnActionPerformed(evt);
             }
-        ));
-        jScrollPane3.setViewportView(personTable);
+        });
+        jPanel1.add(viewbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, -1, -1));
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 760, 970, 220));
+        updatebtn.setBackground(new java.awt.Color(204, 204, 204));
+        updatebtn.setText("update");
+        updatebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, -1, -1));
 
+        deletebtn.setBackground(new java.awt.Color(204, 204, 204));
+        deletebtn.setText("delete");
+        deletebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, -1, -1));
+
+        jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setText("LogOut");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, -1, -1));
 
+        jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setText("Home");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -289,6 +299,10 @@ public class PatientRegistration extends javax.swing.JFrame {
         jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, -1, -1));
         jPanel1.add(vitalsTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 109, -1));
 
+        jLabel4.setText("PatientId");
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
+        jPanel1.add(patientId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
         jScrollPane1.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -299,7 +313,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
         );
 
         pack();
@@ -319,28 +333,29 @@ public class PatientRegistration extends javax.swing.JFrame {
 
     private void registrationbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrationbtnActionPerformed
         // TODO add your handling code here:
-        patient per1=new patient();
-        per1.person.setName(patientName.getText());
-        per1.person.setAge(Integer.parseInt(patientAge.getText()));
-        per1.person.setContact(Long.parseLong(patientContact.getText());
-        per1.person.setContactNo(Long.parseLong(patientContact.getText()));
-        per1.person.setEmailId(patientEmailId.getText());
-        per1.person.setGender(patientGender.getText());
-        per1.person.residence.communityName= patientCommunity.getText();
-        per1.person.residence.houseNo= Integer.parseInt(patientHouse.getText());
-        per1.person.residence.zip = Integer.parseInt(patientZipcode.getText());
-        per1.person.residence.newCity = patientCity.getText();
-        per1.person.residence.state = patientState.getText();
-        per1.setPatientId(Integer.parseInt(patientId.getText()));
-        per1.setPatientUsername(patientUsername.getText());
-        per1.setPatientpwd(patientPassword.getText());
-        per1.vitalSigns.getBloodPressure();
-        per1.vitalSigns.getBodyTemperature(Float.parseFloat(vitalsTemp));
-        PatientDirectory.patientDir.add(pt1);
+        patient pat1=new patient();
+        pat1.per.setName(patientName.getText());
+        pat1.per.setAge(Integer.parseInt(patientAge.getText()));
+        pat1.per.setContactNo(Long.parseLong(patientContact.getText()));
+        pat1.per.setContactNo(Long.parseLong(patientContact.getText()));
+        pat1.per.setEmailId(patientEmailId.getText());
+        pat1.per.setGender(patientGender.getText());
+        
+        pat1.per.residence.communityName = patientCommunity.getText();
+                
+                //.setCommunityName(patientCommunity.getText());
+        pat1.per.residence.houseNo = Integer.parseInt(patientHouse.getText());
+        pat1.per.residence.setZip(Integer.valueOf(patientZipcode.getText()));
+        pat1.per.residence.newCity = patientCity.getText();
+        pat1.per.residence.state = patientState.getText();
+        pat1.setPatientId(Integer.parseInt(patientId.getText()));
+        pat1.setPatientUsername(patientUsername.getText());
+        pat1.setPatientpwd(patientPassword.getText());
+        pat1.vitalsigns.setBloodPressure(Float.parseFloat(vitalsTemp.getText()));
+        pat1.vitalsigns.setBodyTemperature(Float.parseFloat(vitalsTemp.getText()));
+        patientdirectory.patientdirect.add(pat1);
         JOptionPane.showMessageDialog(this, "Person Successfully Added");
         patientDispTable();
-
-        
     }//GEN-LAST:event_registrationbtnActionPerformed
 
     private void vitalsBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitalsBPActionPerformed
@@ -352,6 +367,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         LoginFrame newLoginPage = new LoginFrame();
         newLoginPage.setVisible(true);
         setVisible(false);
+      
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
@@ -360,78 +376,130 @@ public class PatientRegistration extends javax.swing.JFrame {
         newMainFrame.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
-    public void personDispTable(){
-        DefaultTableModel model = (DefaultTableModel) personTable.getModel();
-        model.setRowCount(0);
-        System.out.println("Done");
-        for (person p:persondirect.getpersondirect()){
-            Object[] row=new Object[10];
-            row[0]=p;
-            row[1]=p.getPersonId();
-            row[2]=p.getContact();
-            row[3]=p.getEmailid();
-            row[4]=p.getGender();
-            row[5]=p.getAge();
-            row[6]=p.residence.getHouse();
-            row[7]=p.getCommunityname();
-            row[8]=p.getNewCity();
-            row[9]=p.getState();
-            model.addRow(row);
-            }
+
+    private void viewbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewbtnActionPerformed
+        // TODO add your handling code here:
+     int selectedRowIndex1=patientTable.getSelectedRow();
+     if(selectedRowIndex1<0){
+         JOptionPane.showMessageDialog(this, "please select a row to to delete ");
+         return;
+     }
+        DefaultTableModel model1 = (DefaultTableModel) patientTable.getModel();
+        patient selectedpatient=(patient)model1.getValueAt(selectedRowIndex1, 0);
+        patientName.setText(selectedpatient.per.getName());
+        patientId.setText(String.valueOf(selectedpatient.getPatientId()));
+        patientContact.setText(String.valueOf(selectedpatient.per.getContactNo()));
+        patientEmailId.setText(selectedpatient.per.getEmailId());
+        patientGender.setText(selectedpatient.per.getGender());
+        patientAge.setText(String.valueOf(selectedpatient.per.getAge()));
+        patientHouse.setText(String.valueOf(selectedpatient.per.residence.getHouseNo()));
+        patientCommunity.setText(selectedpatient.per.residence.getCommunityName());
+        patientCity.setText(selectedpatient.per.residence.getNewCity());
+        patientState.setText(selectedpatient.per.residence.getState());
+        patientZipcode.setText(String.valueOf(selectedpatient.per.residence.getZip()));
         
-    }
+        
+     
+    }//GEN-LAST:event_viewbtnActionPerformed
+
+    private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
+        // TODO add your handling code here:
+    
+    }//GEN-LAST:event_updatebtnActionPerformed
+
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+        // TODO add your handling code here:
+        int rowIndex = patientTable.getSelectedRow();
+        if (rowIndex<0){
+            JOptionPane.showMessageDialog(this, "please select a row to delete");
+            return;
+        }
+         DefaultTableModel model1 = (DefaultTableModel) patientTable.getModel();
+         patient selectedpatient=(patient)model1.getValueAt(rowIndex, 1);
+         patientdirect.deletepatient(selectedpatient);
+         
+         
+    }//GEN-LAST:event_deletebtnActionPerformed
+
+    
+//public void personDispTable(){
+//        DefaultTableModel model = (DefaultTableModel) personTable.getModel();
+//        model.setRowCount(0);
+//        System.out.println("Done");
+//        for (person p:persondirect.getpersondirect()){
+//            Object[] row=new Object[10];
+//            row[0]=p;
+//            row[1]=p.getPersonId();
+//            row[2]=p.getContact();
+//            row[3]=p.getEmailid();
+//            row[4]=p.getGender();
+//            row[5]=p.getAge();
+//            row[6]=p.residence.getHouse();
+//            row[7]=p.getCommunityname();
+//            row[8]=p.getNewCity();
+//            row[9]=p.getState();
+//            model.addRow(row);
+//            }
+        
+    
     public void patientDispTable(){
         DefaultTableModel model1 = (DefaultTableModel) patientTable.getModel();
         model1.setRowCount(0);
         System.out.println("Done");
         for (patient p1:patientdirect.getpatientdirect()){
             Object[] row=new Object[10];
-            row[0]=p1.person;
-            row[1]=p1.getpatientId();
-            row[2]=p1.person.getcontactNo();
-            
-            
-            
-            
-        }
-        
+            row[0]=p1.per;
+            row[1]=p1.getPatientId();
+            row[2]=p1.per.getContactNo();
+            row[3]=p1.per.getEmailId();
+            row[4]=p1.per.getGender();
+            row[5]=p1.per.getAge();
+            row[6]=p1.per.residence.getCommunityName();
+            row[7]=p1.per.residence.getNewCity();
+            row[8]=p1.getBloodGroup();
+            row[9]=p1.getPatientHeight();
+            row[10]=p1.getPatientWeight();
+            row[11]=p1.per.residence.getState();
+            model1.addRow(row);
+         }
+ 
         
         
     }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+//    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(PatientRegistration.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PatientRegistration().setVisible(true);
-            }
-        });
-    }
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PatientRegistration().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton deletebtn;
@@ -453,6 +521,7 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
@@ -461,7 +530,6 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField patientAge;
@@ -473,6 +541,7 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField patientGender;
     private javax.swing.JTextField patientHeight;
     private javax.swing.JTextField patientHouse;
+    private javax.swing.JTextField patientId;
     private javax.swing.JTextField patientName;
     private javax.swing.JTextField patientPassword;
     private javax.swing.JTextField patientReenterpassword;
@@ -481,7 +550,6 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField patientUsername;
     private javax.swing.JTextField patientWeight;
     private javax.swing.JTextField patientZipcode;
-    private javax.swing.JTable personTable;
     private javax.swing.JButton registrationbtn;
     private javax.swing.JButton updatebtn;
     private javax.swing.JButton viewbtn;
@@ -490,11 +558,5 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField vitalsTemp;
     // End of variables declaration//GEN-END:variables
 
-    private void patientDispTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    private void personDispTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    
 }

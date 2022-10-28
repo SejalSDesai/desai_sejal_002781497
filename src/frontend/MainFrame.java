@@ -4,6 +4,8 @@
  */
 package frontend;
 
+import backend.personDirectory;
+
 /**
  *
  * @author sej
@@ -26,6 +28,7 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnLogout = new javax.swing.JButton();
         menuRoles = new javax.swing.JMenuBar();
         roleSysAdmin = new javax.swing.JMenu();
         itemSysPatient = new javax.swing.JMenuItem();
@@ -43,9 +46,25 @@ public class MainFrame extends javax.swing.JFrame {
         itemCommHouses = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(153, 153, 153));
 
+        btnLogout.setBackground(new java.awt.Color(153, 153, 153));
+        btnLogout.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogout.setText("Logout");
+        btnLogout.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLogoutActionPerformed(evt);
+            }
+        });
+
+        menuRoles.setBackground(new java.awt.Color(102, 102, 102));
+        menuRoles.setFont(new java.awt.Font("Hiragino Mincho ProN", 1, 14)); // NOI18N
+
+        roleSysAdmin.setBackground(new java.awt.Color(0, 0, 0));
+        roleSysAdmin.setForeground(new java.awt.Color(153, 153, 153));
         roleSysAdmin.setText("System Admin");
 
+        itemSysPatient.setBackground(new java.awt.Color(204, 204, 204));
         itemSysPatient.setText("Patient");
         itemSysPatient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -54,6 +73,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         roleSysAdmin.add(itemSysPatient);
 
+        itemSysDoctor.setBackground(new java.awt.Color(204, 204, 204));
         itemSysDoctor.setText("Doctor");
         itemSysDoctor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -62,6 +82,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         roleSysAdmin.add(itemSysDoctor);
 
+        itemSysHospital.setBackground(new java.awt.Color(204, 204, 204));
         itemSysHospital.setText("Hospital");
         itemSysHospital.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,6 +91,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         roleSysAdmin.add(itemSysHospital);
 
+        itemSysEncounters.setBackground(new java.awt.Color(204, 204, 204));
         itemSysEncounters.setText("Encounters");
         itemSysEncounters.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +102,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         menuRoles.add(roleSysAdmin);
 
+        roleHospAdmin.setBackground(new java.awt.Color(153, 153, 153));
         roleHospAdmin.setText("Hospital Admin");
 
         itemHospPatient.setText("Patient");
@@ -101,6 +124,7 @@ public class MainFrame extends javax.swing.JFrame {
 
         menuRoles.add(roleHospAdmin);
 
+        roleCommAdmin.setBackground(new java.awt.Color(153, 153, 153));
         roleCommAdmin.setText("Community Admin");
 
         itemCommCity.setText("City");
@@ -135,11 +159,15 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 325, Short.MAX_VALUE)
+                .addComponent(btnLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 276, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 253, Short.MAX_VALUE)
+                .addComponent(btnLogout))
         );
 
         pack();
@@ -159,6 +187,10 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysPatientActionPerformed
         // TODO add your handling code here:
+        PatientRegistration registerPatient = new PatientRegistration(patientdirect,persondirect,vitalsignsdirect);
+        registerPatient.setVisible(true);
+        setVisible(false);
+
     }//GEN-LAST:event_itemSysPatientActionPerformed
 
     private void itemSysHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysHospitalActionPerformed
@@ -176,6 +208,13 @@ public class MainFrame extends javax.swing.JFrame {
     private void itemCommHousesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCommHousesActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_itemCommHousesActionPerformed
+
+    private void btnLogoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLogoutActionPerformed
+        // TODO add your handling code here:
+         LoginFrame newLoginPage = new LoginFrame();
+        newLoginPage.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_btnLogoutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -233,6 +272,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnLogout;
     private javax.swing.JMenuItem itemCommCity;
     private javax.swing.JMenuItem itemCommCommunity;
     private javax.swing.JMenuItem itemCommHouses;

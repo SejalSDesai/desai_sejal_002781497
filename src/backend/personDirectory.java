@@ -4,14 +4,25 @@
  */
 package backend;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sej
  */
 public class personDirectory {
-
-    public Iterable<person> getpersondirect() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
+ public static ArrayList<person>persondirect = new ArrayList<person>();
+ public static ArrayList<person> getpersondirect(){
+     return persondirect;
+ }
+ public static void setpersondirect(ArrayList<person> persondirect){
+     personDirectory.persondirect = persondirect;
+ }
+ public static person person1(){
+  return new person();
+ }
 }
+
+ 
+    
+
