@@ -3,16 +3,27 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package frontend;
+import backend.DoctorDirectory;
+import backend.EncounterHistory;
+import backend.vitalsignshistory;
+import backend.patientdirectory;
+
+
 
 /**
  *
  * @author sej
  */
 public class EncounterPage extends javax.swing.JFrame {
-
     /**
      * Creates new form EncounterPage
      */
+    DoctorDirectory docdirect;
+    EncounterHistory encounterhis;
+    vitalsignshistory vitaldirect;
+    patientdirectory patientdirect;
+    
+    
     public EncounterPage() {
         initComponents();
     }
@@ -412,6 +423,8 @@ public class EncounterPage extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+//        Encounter enc = new Encounter();
+//        enc.setEncId((int))
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

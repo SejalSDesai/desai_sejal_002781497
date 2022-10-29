@@ -588,8 +588,25 @@ public class PatientRegistration extends javax.swing.JFrame {
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
+        int selectedRowIndex1=patientTable.getSelectedRow();
         DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
-        if(patientTable.getSelectedRow() == 0)
+        patient selectedPatient=(patient)model.getValueAt(selectedRowIndex1, 0);
+        selectedPatient.per.setName(patientName.getText());
+        selectedPatient.per.setContactNo(Long.parseLong(patientContact.getText()));
+        selectedPatient.per.setEmailId(patientEmailId.getText());
+        selectedPatient.per.setGender(patientGender.getText());
+        selectedPatient.per.residence.communityName = patientCommunity.getText();
+        selectedPatient.per.residence.houseNo = Integer.parseInt(patientHouse.getText());
+        selectedPatient.per.residence.houseNo = Integer.parseInt(patientHouse.getText());
+        selectedPatient.per.residence.setZip(Integer.valueOf(patientZipcode.getText()));
+        selectedPatient.per.residence.newCity = patientCity.getText();
+        selectedPatient.per.residence.state = patientState.getText();
+        selectedPatient.setPatientId(Integer.parseInt(patientId.getText()));
+        selectedPatient.setPatientUsername(patientUsername.getText());
+        String Patient_pwd=new String(patientPassword.getText());
+        selectedPatient.vitalsigns.setBloodPressure(Float.parseFloat(bloodPressuretxt.getText()));
+        selectedPatient.vitalsigns.setBodyTemperature(Float.parseFloat(bodyTemperaturetxt.getText()));
+        
         {
          
      

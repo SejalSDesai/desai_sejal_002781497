@@ -8,6 +8,7 @@ import backend.personDirectory;
 import backend.patientdirectory;
 import backend.vitalsigns;
 import backend.DoctorDirectory;
+import backend.HospitalDirectory;
 import backend.vitalsignshistory;
 
 /**
@@ -19,6 +20,7 @@ public class MainFrame extends javax.swing.JFrame {
     patientdirectory patientdirect;
     vitalsignshistory vitaldirect;
     DoctorDirectory docdirect;
+    HospitalDirectory hosdirect;
     
 
     /**
@@ -30,6 +32,7 @@ public class MainFrame extends javax.swing.JFrame {
         patientdirect=new patientdirectory();
         vitaldirect=new  vitalsignshistory();
         docdirect=new DoctorDirectory();
+        hosdirect=new HospitalDirectory();
     }
 
     /**
@@ -196,6 +199,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemHospHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHospHospitalActionPerformed
         // TODO add your handling code here:
+        HospitalRegistration registerHospital = new HospitalRegistration(hosdirect,patientdirect);
+        registerHospital.setVisible(true);
     }//GEN-LAST:event_itemHospHospitalActionPerformed
 
     private void itemSysPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysPatientActionPerformed
@@ -208,6 +213,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysHospitalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysHospitalActionPerformed
         // TODO add your handling code here:
+        HospitalRegistration registerHospital = new HospitalRegistration(hosdirect,patientdirect);
+        registerHospital.setVisible(true);
     }//GEN-LAST:event_itemSysHospitalActionPerformed
 
     private void itemSysEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysEncountersActionPerformed

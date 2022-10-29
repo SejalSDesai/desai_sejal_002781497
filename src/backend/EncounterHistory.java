@@ -4,10 +4,23 @@
  */
 package backend;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author sej
  */
 public class EncounterHistory {
-    
+   public static ArrayList<Encounter>encounterhis = new ArrayList<Encounter>();
+   public static ArrayList<Encounter> getencounterhis(){
+       return encounterhis;
+   }
+   public static void setencounterhis(ArrayList<Encounter> encounterhis){
+       EncounterHistory.encounterhis = encounterhis;
+   }
+   public void delencounterdetails(Encounter en){
+    encounterhis.remove(en);
+       
+       
+   }
 }
