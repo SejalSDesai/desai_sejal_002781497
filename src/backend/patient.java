@@ -9,7 +9,7 @@ package backend;
  * @author sej
  */
 public class patient {
-    public person per = new person();
+    
     public int patientId;
     public float patientWeight;
     public float patientHeight;
@@ -17,6 +17,8 @@ public class patient {
     public String patientUsername;
     public String patientpwd;
     public vitalsigns vitalsigns = new vitalsigns();
+    
+    public person per = new person();
 //    public House residence = new House();
     public person getPerson() {
         return per;

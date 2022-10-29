@@ -91,13 +91,10 @@ public class PatientRegistration extends javax.swing.JFrame {
         deletebtn = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel23 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        vitalTextArea = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
-        vitalsBP = new javax.swing.JTextField();
+        bloodPressuretxt = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        vitalsTemp = new javax.swing.JTextField();
+        bodyTemperaturetxt = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         patientId = new javax.swing.JTextField();
 
@@ -105,100 +102,65 @@ public class PatientRegistration extends javax.swing.JFrame {
 
         jScrollPane1.setPreferredSize(new java.awt.Dimension(1029, 989));
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
+        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setDebugGraphicsOptions(javax.swing.DebugGraphics.NONE_OPTION);
         jPanel1.setPreferredSize(new java.awt.Dimension(1029, 989));
         jPanel1.setRequestFocusEnabled(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Helvetica Neue", 3, 24)); // NOI18N
         jLabel1.setText("Patient Registration");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(314, 34, -1, -1));
 
         jLabel2.setText("Name");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 101, -1, -1));
-        jPanel1.add(patientName, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 98, -1, -1));
 
         jLabel3.setText("Contact");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 146, -1, -1));
-        jPanel1.add(patientContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, -1, -1));
 
         jLabel10.setText("Email ID");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
-        jPanel1.add(patientEmailId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         jLabel5.setText("Gender");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
-        jPanel1.add(patientGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
 
         jLabel15.setText("Age");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
-        jPanel1.add(patientAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, -1, -1));
 
         jLabel8.setText("DOB");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
         jLabel6.setText("BloodGrp");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 368, -1, -1));
 
         patientBloodgroup.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patientBloodgroupActionPerformed(evt);
             }
         });
-        jPanel1.add(patientBloodgroup, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 365, -1, -1));
 
         jLabel17.setText("Height");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 408, -1, -1));
-        jPanel1.add(patientHeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 408, -1, -1));
 
         jLabel18.setText("Weight");
-        jPanel1.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 454, -1, -1));
-        jPanel1.add(patientWeight, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 451, -1, -1));
 
         jLabel7.setText("House");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 101, 50, 20));
-        jPanel1.add(patientHouse, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 98, -1, -1));
 
         jLabel19.setText("Community");
-        jPanel1.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 146, -1, -1));
-        jPanel1.add(patientCommunity, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 143, -1, -1));
 
         jLabel9.setText("City");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 187, -1, -1));
-        jPanel1.add(patientCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 184, -1, -1));
 
         jLabel16.setText("State");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 232, -1, -1));
-        jPanel1.add(patientState, new org.netbeans.lib.awtextra.AbsoluteConstraints(663, 229, -1, -1));
 
         jLabel12.setText("Zip Code");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 282, -1, -1));
 
         patientZipcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patientZipcodeActionPerformed(evt);
             }
         });
-        jPanel1.add(patientZipcode, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 280, -1, -1));
 
         jLabel13.setText("Username");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, -1, -1));
-        jPanel1.add(patientUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 350, -1, -1));
 
         jLabel21.setText("Password");
-        jPanel1.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 390, -1, -1));
-        jPanel1.add(patientPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 390, -1, -1));
 
         jLabel20.setText("Re-enter Password");
-        jPanel1.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 430, -1, -1));
 
         patientReenterpassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 patientReenterpasswordActionPerformed(evt);
             }
         });
-        jPanel1.add(patientReenterpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 430, -1, -1));
 
         registrationbtn.setBackground(new java.awt.Color(204, 204, 204));
         registrationbtn.setText("REGISTER");
@@ -207,7 +169,6 @@ public class PatientRegistration extends javax.swing.JFrame {
                 registrationbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(registrationbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 570, -1, -1));
 
         patientTable.setBackground(new java.awt.Color(204, 204, 204));
         patientTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -218,7 +179,7 @@ public class PatientRegistration extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "name", "person id", "contact no", "email id", "gender", "age", "house", "community", "city", "state", "BloodPressure", "BodyTemperature"
+                "name", "patient id", "contact no", "email id", "gender", "age", "house", "community", "city", "state", "BloodPressure", "BodyTemperature"
             }
         ));
         patientTable.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -226,10 +187,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         patientTable.setSelectionForeground(new java.awt.Color(0, 255, 255));
         jScrollPane2.setViewportView(patientTable);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 690, 970, 160));
-
         jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 1030, -1));
 
         viewbtn.setBackground(new java.awt.Color(204, 204, 204));
         viewbtn.setText("view");
@@ -238,7 +196,6 @@ public class PatientRegistration extends javax.swing.JFrame {
                 viewbtnActionPerformed(evt);
             }
         });
-        jPanel1.add(viewbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 570, -1, -1));
 
         updatebtn.setBackground(new java.awt.Color(204, 204, 204));
         updatebtn.setText("update");
@@ -247,7 +204,6 @@ public class PatientRegistration extends javax.swing.JFrame {
                 updatebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(updatebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 570, -1, -1));
 
         deletebtn.setBackground(new java.awt.Color(204, 204, 204));
         deletebtn.setText("delete");
@@ -256,7 +212,6 @@ public class PatientRegistration extends javax.swing.JFrame {
                 deletebtnActionPerformed(evt);
             }
         });
-        jPanel1.add(deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 570, -1, -1));
 
         jButton5.setBackground(new java.awt.Color(204, 204, 204));
         jButton5.setText("LogOut");
@@ -265,7 +220,6 @@ public class PatientRegistration extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, -1, -1));
 
         jButton6.setBackground(new java.awt.Color(204, 204, 204));
         jButton6.setText("Home");
@@ -274,34 +228,266 @@ public class PatientRegistration extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 33, -1, -1));
-
-        jLabel23.setText("Enter Vital Signs");
-        jPanel1.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 492, -1, -1));
-
-        vitalTextArea.setColumns(20);
-        vitalTextArea.setRows(5);
-        jScrollPane4.setViewportView(vitalTextArea);
-
-        jPanel1.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 480, 374, 46));
 
         jLabel25.setText("Blood Pressure");
-        jPanel1.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 98, -1));
 
-        vitalsBP.addActionListener(new java.awt.event.ActionListener() {
+        bloodPressuretxt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vitalsBPActionPerformed(evt);
+                bloodPressuretxtActionPerformed(evt);
             }
         });
-        jPanel1.add(vitalsBP, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 470, 100, -1));
 
         jLabel24.setText("Body Temperature");
-        jPanel1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 510, -1, -1));
-        jPanel1.add(vitalsTemp, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 510, 109, -1));
 
         jLabel4.setText("PatientId");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, -1, -1));
-        jPanel1.add(patientId, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jButton6)
+                        .addGap(236, 236, 236)
+                        .addComponent(jLabel1)
+                        .addGap(286, 286, 286)
+                        .addComponent(jButton5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel2)
+                        .addGap(48, 48, 48)
+                        .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(59, 59, 59)
+                        .addComponent(jLabel4)
+                        .addGap(52, 52, 52)
+                        .addComponent(patientId, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(96, 96, 96)
+                        .addComponent(patientHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel10)
+                        .addGap(32, 32, 32)
+                        .addComponent(patientEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel9)
+                        .addGap(123, 123, 123)
+                        .addComponent(patientCity, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel5)
+                        .addGap(37, 37, 37)
+                        .addComponent(patientGender, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel16)
+                        .addGap(116, 116, 116)
+                        .addComponent(patientState, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel15)
+                        .addGap(58, 58, 58)
+                        .addComponent(patientAge, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(307, 307, 307)
+                        .addComponent(jLabel12)
+                        .addGap(89, 89, 89)
+                        .addComponent(patientZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel8))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addComponent(jLabel6)
+                        .addGap(26, 26, 26)
+                        .addComponent(patientBloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(309, 309, 309)
+                        .addComponent(jLabel13)
+                        .addGap(91, 91, 91)
+                        .addComponent(patientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel18))
+                        .addGap(42, 42, 42)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(patientHeight, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(patientWeight, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(309, 309, 309)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel21)
+                            .addComponent(jLabel20))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(patientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(patientReenterpassword, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(287, 287, 287)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel24)
+                            .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(41, 41, 41)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(bodyTemperaturetxt, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(bloodPressuretxt, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(89, 89, 89)
+                            .addComponent(registrationbtn)
+                            .addGap(133, 133, 133)
+                            .addComponent(viewbtn)
+                            .addGap(143, 143, 143)
+                            .addComponent(updatebtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deletebtn))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(39, 39, 39)
+                            .addComponent(jLabel3)
+                            .addGap(36, 36, 36)
+                            .addComponent(patientContact, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(307, 307, 307)
+                            .addComponent(jLabel19)
+                            .addGap(80, 80, 80)
+                            .addComponent(patientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 1030, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 970, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jButton6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(jLabel1))
+                    .addComponent(jButton5))
+                .addGap(26, 26, 26)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(patientName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel4)
+                    .addComponent(patientId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(patientHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(22, 22, 22)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel3))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(patientContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel19))
+                    .addComponent(patientCommunity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel10))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(patientEmailId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel9))
+                    .addComponent(patientCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(12, 12, 12)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(jLabel5))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(patientGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel16))
+                    .addComponent(patientState, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(patientAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jLabel12))
+                    .addComponent(patientZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addComponent(jLabel8)
+                .addGap(13, 13, 13)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel6))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(patientBloodgroup, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel13)
+                    .addComponent(patientUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(2, 2, 2)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel17)
+                        .addGap(29, 29, 29)
+                        .addComponent(jLabel18))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(patientPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(17, 17, 17)
+                        .addComponent(patientReenterpassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(patientHeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(20, 20, 20)
+                                        .addComponent(patientWeight, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(42, 42, 42))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel25)
+                                            .addComponent(bloodPressuretxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(25, 25, 25))))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel21)
+                                .addGap(23, 23, 23)
+                                .addComponent(jLabel20)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(bodyTemperaturetxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(37, 37, 37)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(viewbtn)
+                    .addComponent(updatebtn)
+                    .addComponent(deletebtn)
+                    .addComponent(registrationbtn))
+                .addGap(18, 18, 18)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -313,7 +499,7 @@ public class PatientRegistration extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 879, Short.MAX_VALUE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 845, Short.MAX_VALUE)
         );
 
         pack();
@@ -351,16 +537,16 @@ public class PatientRegistration extends javax.swing.JFrame {
         pat1.setPatientId(Integer.parseInt(patientId.getText()));
         pat1.setPatientUsername(patientUsername.getText());
         pat1.setPatientpwd(patientPassword.getText());
-        pat1.vitalsigns.setBloodPressure(Float.parseFloat(vitalsTemp.getText()));
-        pat1.vitalsigns.setBodyTemperature(Float.parseFloat(vitalsTemp.getText()));
+        pat1.vitalsigns.setBloodPressure(Float.parseFloat(bloodPressuretxt.getText()));
+        pat1.vitalsigns.setBodyTemperature(Float.parseFloat(bodyTemperaturetxt.getText()));
         patientdirectory.patientdirect.add(pat1);
-        JOptionPane.showMessageDialog(this, "Person Successfully Added");
+        JOptionPane.showMessageDialog(this, "patient Successfully Added");
         patientDispTable();
     }//GEN-LAST:event_registrationbtnActionPerformed
 
-    private void vitalsBPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vitalsBPActionPerformed
+    private void bloodPressuretxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bloodPressuretxtActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_vitalsBPActionPerformed
+    }//GEN-LAST:event_bloodPressuretxtActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -381,11 +567,11 @@ public class PatientRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
      int selectedRowIndex1=patientTable.getSelectedRow();
      if(selectedRowIndex1<0){
-         JOptionPane.showMessageDialog(this, "please select a row to to delete ");
+         JOptionPane.showMessageDialog(this, "please select a row to to view");
          return;
      }
         DefaultTableModel model1 = (DefaultTableModel) patientTable.getModel();
-        patient selectedpatient=(patient)model1.getValueAt(selectedRowIndex1, 0);
+        patient selectedpatient=(patient)model1.getValueAt(selectedRowIndex1, 1);
         patientName.setText(selectedpatient.per.getName());
         patientId.setText(String.valueOf(selectedpatient.getPatientId()));
         patientContact.setText(String.valueOf(selectedpatient.per.getContactNo()));
@@ -397,26 +583,33 @@ public class PatientRegistration extends javax.swing.JFrame {
         patientCity.setText(selectedpatient.per.residence.getNewCity());
         patientState.setText(selectedpatient.per.residence.getState());
         patientZipcode.setText(String.valueOf(selectedpatient.per.residence.getZip()));
-        
-        
-     
+         
     }//GEN-LAST:event_viewbtnActionPerformed
 
     private void updatebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatebtnActionPerformed
         // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) patientTable.getModel();
+        if(patientTable.getSelectedRow() == 0)
+        {
+         
+     
+        }
+        
     
     }//GEN-LAST:event_updatebtnActionPerformed
 
     private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
-        // TODO add your handling code here:
-        int rowIndex = patientTable.getSelectedRow();
+//      TODO add your handling code here:
+       int rowIndex = patientTable.getSelectedRow();
         if (rowIndex<0){
             JOptionPane.showMessageDialog(this, "please select a row to delete");
             return;
         }
          DefaultTableModel model1 = (DefaultTableModel) patientTable.getModel();
-         patient selectedpatient=(patient)model1.getValueAt(rowIndex, 1);
+         patient selectedpatient=(patient)model1.getValueAt(rowIndex, 0);
          patientdirect.deletepatient(selectedpatient);
+         JOptionPane.showMessageDialog(this, "data deleted");
+         patientDispTable();
          
          
     }//GEN-LAST:event_deletebtnActionPerformed
@@ -447,19 +640,19 @@ public class PatientRegistration extends javax.swing.JFrame {
         model1.setRowCount(0);
         System.out.println("Done");
         for (patient p1:patientdirect.getpatientdirect()){
-            Object[] row=new Object[10];
+            Object[] row=new Object[12];
             row[0]=p1.per;
             row[1]=p1.getPatientId();
             row[2]=p1.per.getContactNo();
             row[3]=p1.per.getEmailId();
             row[4]=p1.per.getGender();
             row[5]=p1.per.getAge();
-            row[6]=p1.per.residence.getCommunityName();
-            row[7]=p1.per.residence.getNewCity();
-            row[8]=p1.getBloodGroup();
-            row[9]=p1.getPatientHeight();
-            row[10]=p1.getPatientWeight();
-            row[11]=p1.per.residence.getState();
+            row[6]=p1.per.residence.getHouseNo();
+            row[7]=p1.per.residence.getCommunityName();
+            row[8]=p1.per.residence.getNewCity();
+            row[9]=p1.per.residence.getState();
+            row[10]=p1.vitalsigns.getBloodPressure();
+            row[11]=p1.vitalsigns.getBodyTemperature();
             model1.addRow(row);
          }
  
@@ -502,6 +695,8 @@ public class PatientRegistration extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField bloodPressuretxt;
+    private javax.swing.JTextField bodyTemperaturetxt;
     private javax.swing.JButton deletebtn;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -517,7 +712,6 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
@@ -530,7 +724,6 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField patientAge;
     private javax.swing.JTextField patientBloodgroup;
@@ -553,9 +746,6 @@ public class PatientRegistration extends javax.swing.JFrame {
     private javax.swing.JButton registrationbtn;
     private javax.swing.JButton updatebtn;
     private javax.swing.JButton viewbtn;
-    private javax.swing.JTextArea vitalTextArea;
-    private javax.swing.JTextField vitalsBP;
-    private javax.swing.JTextField vitalsTemp;
     // End of variables declaration//GEN-END:variables
 
     

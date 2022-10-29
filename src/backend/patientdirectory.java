@@ -12,12 +12,18 @@ import java.util.ArrayList;
  */
 public class patientdirectory {
   public static ArrayList<patient>patientdirect = new ArrayList<patient>();
+  
+   
+  
   public static ArrayList<patient> getpatientdirect(){
       return patientdirect;
   }
   public static void setpatientdirect(ArrayList<patient> patientdirect){
       patientdirectory.patientdirect = patientdirect;
       
+  }
+  public void deletepatient(patient pt){
+  patientdirect.remove(pt);
   }
   
    

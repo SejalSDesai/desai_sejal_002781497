@@ -4,6 +4,7 @@
  */
 package backend;
 
+
 import java.util.ArrayList;
 
 /**
@@ -19,5 +20,8 @@ public class DoctorDirectory {
     public static void setdocdirect(ArrayList<Doctor>docdirect){
         DoctorDirectory.docdirect = docdirect;
     }
-    
+    public void deletedoctor(Doctor doc){
+    docdirect.remove(doc);
+    }
 }
+

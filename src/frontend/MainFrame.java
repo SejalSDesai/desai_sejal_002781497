@@ -5,18 +5,31 @@
 package frontend;
 
 import backend.personDirectory;
+import backend.patientdirectory;
+import backend.vitalsigns;
+import backend.DoctorDirectory;
+import backend.vitalsignshistory;
 
 /**
  *
  * @author sej
  */
 public class MainFrame extends javax.swing.JFrame {
+    personDirectory persondirect;
+    patientdirectory patientdirect;
+    vitalsignshistory vitaldirect;
+    DoctorDirectory docdirect;
+    
 
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        persondirect=new personDirectory();
+        patientdirect=new patientdirectory();
+        vitaldirect=new  vitalsignshistory();
+        docdirect=new DoctorDirectory();
     }
 
     /**
@@ -187,7 +200,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysPatientActionPerformed
         // TODO add your handling code here:
-        PatientRegistration registerPatient = new PatientRegistration(patientdirect,persondirect,vitalsignsdirect);
+        PatientRegistration registerPatient = new PatientRegistration(patientdirect,persondirect, vitaldirect);
         registerPatient.setVisible(true);
         setVisible(false);
 
@@ -203,6 +216,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysDoctorActionPerformed
         // TODO add your handling code here:
+      DoctorRegistration registerDoctor = new DoctorRegistration(docdirect,patientdirect);
+      registerDoctor.setVisible(true);
     }//GEN-LAST:event_itemSysDoctorActionPerformed
 
     private void itemCommHousesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemCommHousesActionPerformed

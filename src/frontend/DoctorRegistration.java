@@ -5,8 +5,10 @@
 package frontend;
 import backend.Doctor;
 import backend.DoctorDirectory;
+import static backend.DoctorDirectory.docdirect;
 import backend.patient;
 import backend.patientdirectory;
+import backend.person;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,12 +17,17 @@ import javax.swing.table.DefaultTableModel;
  * @author sej
  */
 public class DoctorRegistration extends javax.swing.JFrame {
-
+    person person = new person();
+    DoctorDirectory docdirect;
+    patientdirectory patientdirect;
     /**
      * Creates new form DoctorRegistration
      */
-    public DoctorRegistration() {
+    public DoctorRegistration(DoctorDirectory doctordirect, patientdirectory patientdirect) {
         initComponents();
+        this.docdirect=doctordirect;
+        this.patientdirect=patientdirect;
+        DocDispTable();
     }
 
     /**
@@ -57,15 +64,15 @@ public class DoctorRegistration extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         doctorUsername = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        doctorPassword = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        doctorPasswordAgain = new javax.swing.JTextField();
         doctorRegisterBtn = new javax.swing.JButton();
         doctorViewBtn = new javax.swing.JButton();
         doctorUpdateBtn = new javax.swing.JButton();
         doctorDeleteBtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        docPassword = new javax.swing.JPasswordField();
+        jPasswordField1 = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -123,34 +130,40 @@ public class DoctorRegistration extends javax.swing.JFrame {
                 doctorGenderActionPerformed(evt);
             }
         });
-        jPanel1.add(doctorGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 248, 120, -1));
+        jPanel1.add(doctorGender, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 120, -1));
 
         jLabel7.setText("Age");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(76, 287, -1, -1));
-        jPanel1.add(doctorAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(165, 289, 120, -1));
+
+        doctorAge.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorAgeActionPerformed(evt);
+            }
+        });
+        jPanel1.add(doctorAge, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 120, -1));
 
         jLabel8.setText("DOB");
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 76, -1, -1));
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
 
         jLabel9.setText("Qualifications");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 111, -1, -1));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 80, -1, -1));
 
         docotorQualifications.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 docotorQualificationsActionPerformed(evt);
             }
         });
-        jPanel1.add(docotorQualifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 108, 130, -1));
+        jPanel1.add(docotorQualifications, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 80, 130, -1));
 
         jLabel10.setText("Specialization");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(414, 161, -1, -1));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 130, -1, -1));
 
         doctorSpecialization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 doctorSpecializationActionPerformed(evt);
             }
         });
-        jPanel1.add(doctorSpecialization, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 158, 130, -1));
+        jPanel1.add(doctorSpecialization, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 130, 130, -1));
 
         jLabel11.setText("Username");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(435, 202, -1, -1));
@@ -164,17 +177,9 @@ public class DoctorRegistration extends javax.swing.JFrame {
 
         jLabel12.setText("Password");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(436, 251, -1, -1));
-        jPanel1.add(doctorPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 248, 130, -1));
 
         jLabel13.setText("Re-enter Password");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 289, -1, -1));
-
-        doctorPasswordAgain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                doctorPasswordAgainActionPerformed(evt);
-            }
-        });
-        jPanel1.add(doctorPasswordAgain, new org.netbeans.lib.awtextra.AbsoluteConstraints(561, 289, 130, -1));
 
         doctorRegisterBtn.setText("Register");
         doctorRegisterBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -182,7 +187,7 @@ public class DoctorRegistration extends javax.swing.JFrame {
                 doctorRegisterBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(doctorRegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(85, 409, -1, -1));
+        jPanel1.add(doctorRegisterBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
 
         doctorViewBtn.setText("View");
         doctorViewBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -190,29 +195,45 @@ public class DoctorRegistration extends javax.swing.JFrame {
                 doctorViewBtnActionPerformed(evt);
             }
         });
-        jPanel1.add(doctorViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(264, 409, 85, -1));
+        jPanel1.add(doctorViewBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, 85, -1));
 
         doctorUpdateBtn.setText("Update");
-        jPanel1.add(doctorUpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(465, 409, 78, -1));
+        doctorUpdateBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorUpdateBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(doctorUpdateBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, 78, -1));
 
         doctorDeleteBtn.setText("Delete");
-        jPanel1.add(doctorDeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(644, 409, 90, -1));
+        doctorDeleteBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                doctorDeleteBtnActionPerformed(evt);
+            }
+        });
+        jPanel1.add(doctorDeleteBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 410, 90, -1));
 
         jTable1.setBackground(new java.awt.Color(204, 204, 204));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Name", "doctorId", "Gender", "Email", "Contact", "Username", "Qualifications"
+                "DoctorId", "Name", "Contact", "EmaiID", "Gender", "Age", "Qualifications", "Specilazation", "Username"
             }
         ));
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 458, 940, 174));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 940, 174));
+
+        docPassword.setText("jPasswordField1");
+        jPanel1.add(docPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 250, 130, -1));
+
+        jPasswordField1.setText("jPasswordField1");
+        jPanel1.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 290, 130, -1));
 
         jScrollPane1.setViewportView(jPanel1);
 
@@ -220,7 +241,9 @@ public class DoctorRegistration extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 966, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -264,10 +287,6 @@ public class DoctorRegistration extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_doctorUsernameActionPerformed
 
-    private void doctorPasswordAgainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorPasswordAgainActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_doctorPasswordAgainActionPerformed
-
     private void doctorRegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorRegisterBtnActionPerformed
         // TODO add your handling code here:
        Doctor doc1=new Doctor();
@@ -277,7 +296,7 @@ public class DoctorRegistration extends javax.swing.JFrame {
        doc1.person.setGender(doctorGender.getText());
        doc1.setDocId(Integer.parseInt(doctorID.getText()));
        doc1.setDocUsername(doctorUsername.getText());
-       String Doc_Pwd=new String (doctorPassword.getPassword());
+       String Doc_Pwd=new String (docPassword.getPassword());
        doc1.setDocPwd(Doc_Pwd);
        doc1.setDocQualifications(docotorQualifications.getText());
        doc1.setDocSpecialize(doctorSpecialization.getText());
@@ -292,12 +311,12 @@ public class DoctorRegistration extends javax.swing.JFrame {
 
     private void doctorViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorViewBtnActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex1=doc1Table.getSelectedRow();
+        int selectedRowIndex1=jTable1.getSelectedRow();
         if (selectedRowIndex1<0){
             JOptionPane.showMessageDialog(this, "please select a row to view");
             return;
         }
-        DefaultTableModel model1 = (DefaultTableModel) doc1Table.getModel();
+        DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
         Doctor selectedDoc1=(Doctor)model1.getValueAt(selectedRowIndex1, 0);
         doctorName.setText(selectedDoc1.person.getName());
         doctorID.setText(String.valueOf(selectedDoc1.getDocId()));
@@ -312,14 +331,58 @@ public class DoctorRegistration extends javax.swing.JFrame {
     private void docotorQualificationsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_docotorQualificationsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_docotorQualificationsActionPerformed
+
+    private void doctorDeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorDeleteBtnActionPerformed
+        // TODO add your handling code here:
+        int rowIndex = jTable1.getSelectedRow();
+        if(rowIndex<0){
+            JOptionPane.showMessageDialog(this, "please select a row to delete");
+            return;
+        }
+        DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
+        Doctor selectedDoc1=(Doctor)model1.getValueAt(rowIndex, 0);
+        docdirect.deletedoctor(selectedDoc1);
+        JOptionPane.showMessageDialog(this, "data deleted");
+        DocDispTable();
+    }//GEN-LAST:event_doctorDeleteBtnActionPerformed
+
+    private void doctorAgeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorAgeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_doctorAgeActionPerformed
+
+    private void doctorUpdateBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_doctorUpdateBtnActionPerformed
+        // TODO add your handling code here:
+        
+     int selectedRowIndex = jTable1.getSelectedRow();
+     DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
+     Doctor selectedDoctor=(Doctor)model1.getValueAt(selectedRowIndex, 0);
+//     {
+//          JOptionPane.showMessageDialog(this, "select a row to view");
+//          return;
+//      }
+     selectedDoctor.person.setName(doctorName.getText());
+     selectedDoctor.setDocId(Integer.parseInt(doctorID.getText()));
+     selectedDoctor.person.setContactNo(Long.parseLong(doctorContact.getText()));
+     selectedDoctor.person.setEmailId(doctorEmail.getText());
+     selectedDoctor.person.setGender(doctorGender.getText());
+//     selectedDoctor.person.setAge(doctorAge.getText());
+     selectedDoctor.setDocQualifications(docotorQualifications.getText());
+     selectedDoctor.setDocSpecialize(doctorSpecialization.getText());
+     selectedDoctor.setDocUsername(doctorUsername.getText());
+     DocDispTable();
+     
+      
+       
+      
+    }//GEN-LAST:event_doctorUpdateBtnActionPerformed
     public void DocDispTable(){
-        DefaultTableModel model1 = (DefaultTableModel) docTable.getModel();
+        DefaultTableModel model1 = (DefaultTableModel) jTable1.getModel();
         model1.setRowCount(0);
         System.out.println("done");
         for (Doctor d:DoctorDirectory.getdocdirect()){
             Object[] row=new Object[9];
             row[0]=d;
-            row[1]=d.person.doctorID();
+            row[1]=d.person.getName();
             row[2]=d.person.getContactNo();
             row[3]=d.person.getEmailId();
             row[4]=d.person.getGender();
@@ -362,12 +425,13 @@ public class DoctorRegistration extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DoctorRegistration().setVisible(true);
+//                new DoctorRegistration().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPasswordField docPassword;
     private javax.swing.JTextField docotorQualifications;
     private javax.swing.JTextField doctorAge;
     private javax.swing.JTextField doctorContact;
@@ -378,8 +442,6 @@ public class DoctorRegistration extends javax.swing.JFrame {
     private javax.swing.JTextField doctorID;
     private javax.swing.JButton doctorLogoutBtn;
     private javax.swing.JTextField doctorName;
-    private javax.swing.JTextField doctorPassword;
-    private javax.swing.JTextField doctorPasswordAgain;
     private javax.swing.JButton doctorRegisterBtn;
     private javax.swing.JTextField doctorSpecialization;
     private javax.swing.JButton doctorUpdateBtn;
@@ -399,6 +461,7 @@ public class DoctorRegistration extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;

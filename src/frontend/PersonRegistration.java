@@ -7,7 +7,7 @@ import backend.person;
 import backend.personDirectory;
 import backend.city;
 import backend.community;
-import backend.house;
+//import backend.house;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -21,10 +21,10 @@ public class PersonRegistration extends javax.swing.JFrame {
      * Creates new form PersonRegistration
      */
     public PersonRegistration(personDirectory person) {
-        initComponents();
-        this.person=person;
-        personDispTable();
-    }
+//        initComponents();
+//        this.person=person;
+//        personDispTable();
+//    }
 }
 
     /**
@@ -462,23 +462,23 @@ public class PersonRegistration extends javax.swing.JFrame {
 
     private void personRegisterBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personRegisterBtnActionPerformed
         // TODO add your handling code here:
-        Person p2=new Person();
-        p2.setName(pName.)
-        per.setage(Integer.parseInt(pAge.getText()));
-        per.setContactNo(Long.parseLong(pcontact.getText()));
-        per.setEmailId(pEmailid.getText());
-        p1.setGender(pGender.getText());
-        p1.residence.communityName= pCommunity.getText();
-        p1.residence.houseNo= Integer.parseInt(pHouse.getText());
-        p1.residence.zip = Integer.parseInt(pZipCode.getText());
-        p1.residence.newCity = pCity.getText();
-        p1.residence.state = pState.getText();
-        p1.setPersonId(Integer.parseInt(ppID.getText()));
-        p1.setUserName(pUsername.getText());
-        p1.setPwd(pPswd.getText());
-        PersonDirectory.personDir.add(p1);
-        JOptionPane.showMessageDialog(this, "Person Successfully Added");
-        personDispTable();
+//        Person p2=new Person();
+//        p2.setName(pName.)
+//        per.setage(Integer.parseInt(pAge.getText()));
+//        per.setContactNo(Long.parseLong(pcontact.getText()));
+//        per.setEmailId(pEmailid.getText());
+//        p1.setGender(pGender.getText());
+//        p1.residence.communityName= pCommunity.getText();
+//        p1.residence.houseNo= Integer.parseInt(pHouse.getText());
+//        p1.residence.zip = Integer.parseInt(pZipCode.getText());
+//        p1.residence.newCity = pCity.getText();
+//        p1.residence.state = pState.getText();
+//        p1.setPersonId(Integer.parseInt(ppID.getText()));
+//        p1.setUserName(pUsername.getText());
+//        p1.setPwd(pPswd.getText());
+//        PersonDirectory.personDir.add(p1);
+//        JOptionPane.showMessageDialog(this, "Person Successfully Added");
+//        personDispTable();
     }//GEN-LAST:event_personRegisterBtnActionPerformed
 
     private void personViewBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personViewBtnActionPerformed
@@ -489,21 +489,21 @@ public class PersonRegistration extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this,"Please select a row to delete");
             return;
         }
-        DefaultTableModel model = (DefaultTableModel) personTable.getModel();
-        Person selectedPerson=(Person)model.getValueAt(selectedRowIndex,0);
-        pName.setText(selectedPerson.getName());
-        ppID.setText(String.valueOf(selectedPerson.getPersonId()));
-        pcontact.setText(String.valueOf(selectedPerson.getContactNo()));
-        pHouse.setText(String.valueOf(selectedPerson.residence.getHouseNo()));
-        pEmailid.setText(selectedPerson.getEmailId());
-        pCommunity.setText(selectedPerson.residence.getCommunityName());
-        pAge.setText(String.valueOf(selectedPerson.getAge()));
-        pGender.setText(selectedPerson.getGender());
-        pCity.setText(selectedPerson.residence.getNewCity());
-        pState.setText(selectedPerson.residence.getState());
-        pZipCode.setText(String.valueOf(selectedPerson.residence.getZip()));
-        //        SimpleDateFormat strdate = new SimpleDateFormat("MMM-dd-yyyy");
-        //PhotoDisp.setIcon(selectedEmp.getIcon());
+//        DefaultTableModel model = (DefaultTableModel) personTable.getModel();
+////        Person selectedPerson=(Person)model.getValueAt(selectedRowIndex,0);
+//        pName.setText(selectedPerson.getName());
+//        ppID.setText(String.valueOf(selectedPerson.getPersonId()));
+//        pcontact.setText(String.valueOf(selectedPerson.getContactNo()));
+//        pHouse.setText(String.valueOf(selectedPerson.residence.getHouseNo()));
+//        pEmailid.setText(selectedPerson.getEmailId());
+//        pCommunity.setText(selectedPerson.residence.getCommunityName());
+//        pAge.setText(String.valueOf(selectedPerson.getAge()));
+//        pGender.setText(selectedPerson.getGender());
+//        pCity.setText(selectedPerson.residence.getNewCity());
+//        pState.setText(selectedPerson.residence.getState());
+//        pZipCode.setText(String.valueOf(selectedPerson.residence.getZip()));
+//        //        SimpleDateFormat strdate = new SimpleDateFormat("MMM-dd-yyyy");
+//        //PhotoDisp.setIcon(selectedEmp.getIcon());
     }//GEN-LAST:event_personViewBtnActionPerformed
 
     private void personDeleteBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personDeleteBtnActionPerformed
@@ -538,11 +538,11 @@ public class PersonRegistration extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PersonRegistration().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new PersonRegistration().setVisible(true);
+//            }
+//        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

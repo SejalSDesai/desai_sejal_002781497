@@ -9,7 +9,7 @@ package backend;
  * @author sej
  */
 public class Encounter extends vitalsigns {
-    private date encounterDate;
+    private Date encounterDate;
     private int encounterID;
     public Doctor doctor = new Doctor();
     public patient patient = new patient();

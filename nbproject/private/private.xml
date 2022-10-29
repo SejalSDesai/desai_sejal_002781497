@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/PersonDirectory.java</file>
-            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/PersonRegistration.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/backend/House.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/backend/patientdirectory.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/backend/Encounter.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/LoginFrame.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/MainFrame.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/EncounterPage.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/HospitalRrgistration.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/PatientRegistration.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/LoginBox.java</file>
+            <file>file:/Users/sej/NetBeansProjects/managment/src/frontend/DoctorRegistration.java</file>
         </group>
     </open-files>
 </project-private>
