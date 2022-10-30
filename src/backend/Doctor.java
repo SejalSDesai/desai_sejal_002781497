@@ -8,7 +8,7 @@ package backend;
  *
  * @author sej
  */
-public class Doctor {
+public class Doctor extends person {
     public person person = new person();
     public int docId;
     public String docUsername;

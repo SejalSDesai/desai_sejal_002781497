@@ -8,6 +8,7 @@ import backend.personDirectory;
 import backend.patientdirectory;
 import backend.vitalsigns;
 import backend.DoctorDirectory;
+import backend.EncounterHistory;
 import backend.HospitalDirectory;
 import backend.vitalsignshistory;
 
@@ -16,11 +17,13 @@ import backend.vitalsignshistory;
  * @author sej
  */
 public class MainFrame extends javax.swing.JFrame {
-    personDirectory persondirect;
+//    personDirectory persondirect;
     patientdirectory patientdirect;
-    vitalsignshistory vitaldirect;
+//   vitalsignshistory vitaldirect;
     DoctorDirectory docdirect;
     HospitalDirectory hosdirect;
+    EncounterHistory encounterhis;
+    
     
 
     /**
@@ -28,11 +31,12 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        persondirect=new personDirectory();
+//        persondirect=new personDirectory();
         patientdirect=new patientdirectory();
-        vitaldirect=new  vitalsignshistory();
+//       vitaldirect=new  vitalsignshistory();
         docdirect=new DoctorDirectory();
         hosdirect=new HospitalDirectory();
+        encounterhis=new EncounterHistory();
     }
 
     /**
@@ -122,9 +126,19 @@ public class MainFrame extends javax.swing.JFrame {
         roleHospAdmin.setText("Hospital Admin");
 
         itemHospPatient.setText("Patient");
+        itemHospPatient.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHospPatientActionPerformed(evt);
+            }
+        });
         roleHospAdmin.add(itemHospPatient);
 
         itemHospDoctor.setText("Doctor");
+        itemHospDoctor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHospDoctorActionPerformed(evt);
+            }
+        });
         roleHospAdmin.add(itemHospDoctor);
 
         itemHospHospital.setText("Hospital");
@@ -136,6 +150,11 @@ public class MainFrame extends javax.swing.JFrame {
         roleHospAdmin.add(itemHospHospital);
 
         itemHospEncounters.setText("Encounters");
+        itemHospEncounters.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemHospEncountersActionPerformed(evt);
+            }
+        });
         roleHospAdmin.add(itemHospEncounters);
 
         menuRoles.add(roleHospAdmin);
@@ -205,7 +224,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysPatientActionPerformed
         // TODO add your handling code here:
-        PatientRegistration registerPatient = new PatientRegistration(patientdirect,persondirect, vitaldirect);
+        PatientRegistration registerPatient = new PatientRegistration(patientdirect );
         registerPatient.setVisible(true);
         setVisible(false);
 
@@ -219,6 +238,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void itemSysEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysEncountersActionPerformed
         // TODO add your handling code here:
+        EncounterSystemRegisteration registerEncounter = new EncounterSystemRegisteration(docdirect,encounterhis,patientdirect);
+        registerEncounter.setVisible(true);
     }//GEN-LAST:event_itemSysEncountersActionPerformed
 
     private void itemSysDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemSysDoctorActionPerformed
@@ -237,6 +258,25 @@ public class MainFrame extends javax.swing.JFrame {
         newLoginPage.setVisible(true);
         setVisible(false);
     }//GEN-LAST:event_btnLogoutActionPerformed
+
+    private void itemHospEncountersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHospEncountersActionPerformed
+        // TODO add your handling code here:
+//       EncounterPage registerEncounterPage = new EncounterPageRegistration(docdirect,patientdirect,encounterhis);
+//       registerEncounter.
+    }//GEN-LAST:event_itemHospEncountersActionPerformed
+
+    private void itemHospPatientActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHospPatientActionPerformed
+        // TODO add your handling code here:
+       PatientRegistration registerPatient = new PatientRegistration(patientdirect );
+        registerPatient.setVisible(true);
+        setVisible(false);
+    }//GEN-LAST:event_itemHospPatientActionPerformed
+
+    private void itemHospDoctorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemHospDoctorActionPerformed
+        // TODO add your handling code here:
+        DoctorRegistration registerDoctor = new DoctorRegistration(docdirect,patientdirect);
+      registerDoctor.setVisible(true);
+    }//GEN-LAST:event_itemHospDoctorActionPerformed
 
     /**
      * @param args the command line arguments

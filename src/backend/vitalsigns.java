@@ -4,16 +4,59 @@
  */
 package backend;
 
+import java.time.LocalTime;
+import java.util.Date;
+
 /**
  *
  * @author sej
  */
-public class vitalsigns {
+public class vitalsigns extends patient {
     public String vitals;
     public float bodyTemperature;
     public float bloodPressure;
     public float oxygenLevel;
     public float heartRate;
+    public float sugarlevel;
+    public String symptoms;
+    
+    public vitalsigns(){
+    }
+    
+    public vitalsigns(String name,int patientId ){
+        this.name = name;
+        this.patientId = patientId;
+        
+    }
+   
+    public vitalsigns(float bodyTemperature,float bloodPressure,float oxygenLevel,float heartRate,float sugarlevel,String symptoms){
+        this.vitals = vitals;
+        this. bodyTemperature = bodyTemperature;
+        this.bloodPressure = bloodPressure;
+        this. oxygenLevel = oxygenLevel;
+        this.heartRate = heartRate;
+        this.sugarlevel = sugarlevel;
+        this.symptoms = symptoms;
+        
+
+    }
+            
+
+    public String getSymptoms() {
+        return symptoms;
+    }
+
+    public void setSymptoms(String symptoms) {
+        this.symptoms = symptoms;
+    }
+
+    public float getSugarlevel() {
+        return sugarlevel;
+    }
+
+    public void setSugarlevel(float sugarlevel) {
+        this.sugarlevel = sugarlevel;
+    }
 
     public String getVitals() {
         return vitals;

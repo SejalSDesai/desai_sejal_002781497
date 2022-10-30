@@ -4,9 +4,19 @@
  */
 package frontend;
 import backend.DoctorDirectory;
+import backend.Encounter;
 import backend.EncounterHistory;
-import backend.vitalsignshistory;
+import backend.Hospital;
+import backend.patient;
 import backend.patientdirectory;
+import backend.person;
+import backend.vitalsigns;
+import backend.vitalsignshistory;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 
 
 
@@ -22,10 +32,12 @@ public class EncounterPage extends javax.swing.JFrame {
     EncounterHistory encounterhis;
     vitalsignshistory vitaldirect;
     patientdirectory patientdirect;
-    
-    
-    public EncounterPage() {
-        initComponents();
+    public EncounterPage( patientdirectory patientdirect,DoctorDirectory docdirect,EncounterHistory encounterhis){
+    initComponents();
+    this.docdirect = docdirect;
+    this.encounterhis = encounterhis;
+    this.patientdirect = patientdirect;
+    this.vitaldirect = vitaldirect; 
     }
 
     /**
@@ -41,33 +53,36 @@ public class EncounterPage extends javax.swing.JFrame {
         patientHomeBtn = new javax.swing.JButton();
         patientLogoutBtn = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        encpatName = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        encpatId = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        encpatDocId = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        encpatEncounterId = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         patientBloodPressureLbl = new javax.swing.JLabel();
-        patientBloodPressure = new javax.swing.JTextField();
+        encpatBloodPressure = new javax.swing.JTextField();
         patientSugarLevelLbl = new javax.swing.JLabel();
-        patientSugarLevel = new javax.swing.JTextField();
+        encpatSugarLevel = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        encpatBodyTemp = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        encpatSymptons = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        encpatDiagnosis = new javax.swing.JTextField();
+        createbtn = new javax.swing.JButton();
+        viewbtn = new javax.swing.JButton();
+        updatebtn = new javax.swing.JButton();
+        deletebtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         encounterRegistrationTable = new javax.swing.JTable();
+        jLabel11 = new javax.swing.JLabel();
+        encpaDoctorName = new javax.swing.JTextField();
+        DateChooser = new com.toedter.calendar.JDateChooser();
+        timePicker = new com.github.lgooddatepicker.components.TimePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -96,17 +111,17 @@ public class EncounterPage extends javax.swing.JFrame {
 
         jLabel10.setText("Patient ID");
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        encpatId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                encpatIdActionPerformed(evt);
             }
         });
 
         jLabel3.setText("Doctor ID");
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        encpatDocId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                encpatDocIdActionPerformed(evt);
             }
         });
 
@@ -116,67 +131,66 @@ public class EncounterPage extends javax.swing.JFrame {
 
         jLabel5.setText("Time");
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
-            }
-        });
-
         patientBloodPressureLbl.setText("Blood Pressure");
 
-        patientBloodPressure.addActionListener(new java.awt.event.ActionListener() {
+        encpatBloodPressure.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientBloodPressureActionPerformed(evt);
+                encpatBloodPressureActionPerformed(evt);
             }
         });
 
         patientSugarLevelLbl.setText("Sugar Level");
 
-        patientSugarLevel.addActionListener(new java.awt.event.ActionListener() {
+        encpatSugarLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                patientSugarLevelActionPerformed(evt);
+                encpatSugarLevelActionPerformed(evt);
             }
         });
 
         jLabel9.setText("Body Temp");
 
-        jTextField8.addActionListener(new java.awt.event.ActionListener() {
+        encpatBodyTemp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField8ActionPerformed(evt);
+                encpatBodyTempActionPerformed(evt);
             }
         });
 
         jLabel6.setText("Symptoms");
 
-        jTextField5.addActionListener(new java.awt.event.ActionListener() {
+        encpatSymptons.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField5ActionPerformed(evt);
+                encpatSymptonsActionPerformed(evt);
             }
         });
 
         jLabel7.setText("Diagnosis");
 
-        jButton1.setText("Create");
-        jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        createbtn.setText("Create");
+        createbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        createbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                createbtnActionPerformed(evt);
             }
         });
 
-        jButton2.setText("View");
-        jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        viewbtn.setText("View");
+        viewbtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        viewbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                viewbtnActionPerformed(evt);
             }
         });
 
-        jButton3.setText("Update");
-        jButton3.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        updatebtn.setText("Update");
+        updatebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        jButton4.setText("Delete");
-        jButton4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        deletebtn.setText("Delete");
+        deletebtn.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        deletebtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletebtnActionPerformed(evt);
+            }
+        });
 
         encounterRegistrationTable.setBackground(new java.awt.Color(204, 204, 204));
         encounterRegistrationTable.setBorder(javax.swing.BorderFactory.createCompoundBorder());
@@ -201,6 +215,14 @@ public class EncounterPage extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(encounterRegistrationTable);
 
+        jLabel11.setText("Doctor Name");
+
+        encpaDoctorName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                encpaDoctorNameActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -214,67 +236,76 @@ public class EncounterPage extends javax.swing.JFrame {
                         .addComponent(jLabel1)
                         .addGap(265, 265, 265)
                         .addComponent(patientLogoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(103, 103, 103)
-                        .addComponent(jLabel8))
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addGap(102, 102, 102)
-                                    .addComponent(jLabel5)
+                                    .addGap(76, 76, 76)
+                                    .addComponent(jLabel10)
+                                    .addGap(57, 57, 57)
+                                    .addComponent(encpatId, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(patientSugarLevelLbl))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(56, 56, 56)
+                                    .addComponent(jLabel2)
+                                    .addGap(55, 55, 55)
+                                    .addComponent(encpatName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(110, 110, 110)
+                                    .addComponent(patientBloodPressureLbl))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(76, 76, 76)
+                                    .addComponent(jLabel3)
                                     .addGap(59, 59, 59)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(142, 142, 142)
-                                    .addComponent(jLabel7))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(76, 76, 76)
-                                        .addComponent(jLabel10)
-                                        .addGap(57, 57, 57)
-                                        .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(patientSugarLevelLbl))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
-                                        .addComponent(jLabel2)
-                                        .addGap(55, 55, 55)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(110, 110, 110)
-                                        .addComponent(patientBloodPressureLbl))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(76, 76, 76)
-                                        .addComponent(jLabel3)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel9))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(56, 56, 56)
-                                        .addComponent(jLabel4)
-                                        .addGap(59, 59, 59)
-                                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel6))))
+                                    .addComponent(encpatDocId, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel9))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addGap(56, 56, 56)
+                                    .addComponent(jLabel4)
+                                    .addGap(59, 59, 59)
+                                    .addComponent(encpatEncounterId, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel6))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                    .addGap(54, 54, 54)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel11)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(27, 27, 27)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(jLabel8)
+                                                .addComponent(jLabel5))))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(67, 67, 67)
+                                            .addComponent(encpaDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGap(59, 59, 59)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                .addComponent(timePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(DateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                            .addGap(230, 230, 230)
+                                            .addComponent(jLabel7)))))
                             .addGap(59, 59, 59)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(patientSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(patientBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(encpatSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(encpatBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(encpatBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(encpatSymptons, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(encpatDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(181, 181, 181)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(createbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(95, 95, 95)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jPanel1Layout.createSequentialGroup()
                                     .addGap(103, 103, 103)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 974, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -293,69 +324,76 @@ public class EncounterPage extends javax.swing.JFrame {
                             .addComponent(patientLogoutBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(47, 47, 47)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(encpatName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(patientBloodPressureLbl)
-                                .addComponent(patientBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(encpatBloodPressure, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(34, 34, 34)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(encpatId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel10)
                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                 .addComponent(patientSugarLevelLbl)
-                                .addComponent(patientSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(encpatSugarLevel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(26, 26, 26)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(encpatDocId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addComponent(jLabel4))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(31, 31, 31)
-                        .addComponent(jLabel8))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel6))))
+                            .addComponent(encpatBodyTemp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel5))
+                        .addComponent(jLabel4))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(encpatEncounterId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(encpatSymptons, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6))))
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel8)
+                        .addGap(2, 2, 2)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel7)
+                                    .addComponent(encpatDiagnosis, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel5)
+                                    .addComponent(timePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(encpaDoctorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(updatebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deletebtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(createbtn, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(DateChooser, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -389,87 +427,165 @@ public class EncounterPage extends javax.swing.JFrame {
         setVisible(false);
     }//GEN-LAST:event_patientLogoutBtnActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void encpatIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+    }//GEN-LAST:event_encpatIdActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void encpatDocIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatDocIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_encpatDocIdActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void encpatBloodPressureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatBloodPressureActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_encpatBloodPressureActionPerformed
 
-    private void patientBloodPressureActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientBloodPressureActionPerformed
+    private void encpatSugarLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatSugarLevelActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_patientBloodPressureActionPerformed
+    }//GEN-LAST:event_encpatSugarLevelActionPerformed
 
-    private void patientSugarLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_patientSugarLevelActionPerformed
+    private void encpatBodyTempActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatBodyTempActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_patientSugarLevelActionPerformed
+    }//GEN-LAST:event_encpatBodyTempActionPerformed
 
-    private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
+    private void encpatSymptonsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpatSymptonsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField8ActionPerformed
+    }//GEN-LAST:event_encpatSymptonsActionPerformed
 
-    private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
+    private void viewbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_viewbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField5ActionPerformed
+       int selectedRowIndex1=encounterRegistrationTable.getSelectedRow();
+        if (selectedRowIndex1<0){
+            JOptionPane.showMessageDialog(this,"Please select a row to View");
+            return;
+        }
+        DefaultTableModel model1 = (DefaultTableModel) encounterRegistrationTable.getModel();
+        Encounter selectedEnc=(Encounter)model1.getValueAt(selectedRowIndex1,0);
+       encpatName.setText(selectedEnc.patient.per.getName());
+        encpatId.setText(String.valueOf(selectedEnc.patient.getPatientId()));
+        encpatDocId.setText(String.valueOf(selectedEnc.doc.getDocId()));
+        encpaDoctorName.setText(selectedEnc.doc.person.getName());
+        encpatEncounterId.setText(String.valueOf(selectedEnc.getEncId()));
+        DateChooser.setDate(selectedEnc.getEncDate());
+        timePicker.setTime(selectedEnc.getEncTime());
+        encpatBloodPressure.setText(String.valueOf(selectedEnc.getBloodPressure()));
+        encpatBodyTemp.setText(String.valueOf(selectedEnc.getBodyTemperature()));
+        encpatSugarLevel.setText(String.valueOf(selectedEnc.getSugarlevel()));
+        encpatSymptons.setText(selectedEnc.getSymptoms());
+        encpatDiagnosis.setText(selectedEnc.getEncDiagnosis()); 
+    }//GEN-LAST:event_viewbtnActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void createbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_createbtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        Encounter enc1 = new Encounter();
+        enc1.setEncId((int)(Math.random()*999+100));
+        enc1.patient.setPatientId((int)(Math.random()*9999+1000));
+        enc1.doc.setDocId((int)(Math.random()*99+10));
+//        SimpleDateFormat encounterDate = new SimpleDateFormat("MMM-dd-yyyy");
+        enc1.setEncDate(DateChooser.getDate());
+        enc1.setEncTime(timePicker.getTime());
+        enc1.patient.per.setName(encpatName.getText());
+        enc1.doc.person.setName(encpaDoctorName.getText());
+        enc1.setSugarlevel(Float.parseFloat(encpatSugarLevel.getText()));
+        enc1.setBloodPressure(Float.parseFloat(encpatBloodPressure.getText()));
+        enc1.setBodyTemperature(Float.parseFloat(encpatBodyTemp.getText()));
+        enc1.setSymptoms(encpatSymptons.getText());
+        enc1.setEncDiagnosis(encpatDiagnosis.getText());
+        EncounterHistory.encounterhis.add(enc1);
+        JOptionPane.showMessageDialog(this, "Encounter Successfully Added");
+        encounterDispTable();
+    }//GEN-LAST:event_createbtnActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void encpaDoctorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encpaDoctorNameActionPerformed
         // TODO add your handling code here:
-//        Encounter enc = new Encounter();
-//        enc.setEncId((int))
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_encpaDoctorNameActionPerformed
 
+    private void deletebtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletebtnActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex=encounterRegistrationTable.getSelectedRow();
+        if (selectedRowIndex<0){
+            JOptionPane.showMessageDialog(this,"Please select a row to delete");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) encounterRegistrationTable.getModel();
+        System.out.print(model.getValueAt(selectedRowIndex,0));
+        Encounter selectedEnc=(Encounter)model.getValueAt(selectedRowIndex,0);
+        encounterhis.delencounterdetails(selectedEnc);
+        encounterDispTable();
+    }//GEN-LAST:event_deletebtnActionPerformed
+    public void encounterDispTable(){
+            DefaultTableModel model1 = (DefaultTableModel) encounterRegistrationTable.getModel();
+            model1.setRowCount(0);
+            System.out.println("Done");
+            for (Encounter es:EncounterHistory.getencounterhis()){
+                Object[] row=new Object[12];
+                row[0]=es;
+                row[1]=es.doc.getDocId();
+                row[2]=es.doc.person.getName();
+                row[3]=es.patient.getPatientId();
+                row[4]=es.patient.per.getName();
+                row[5]=es.getEncDate();
+                row[6]=es.getEncTime();
+                row[7]=es.getBloodPressure();
+                row[8]=es.getSugarlevel();
+                row[9]=es.getBodyTemperature();
+                row[10]=es.getSymptoms();
+                row[11]=es.getEncDiagnosis();
+                model1.addRow(row);
+            }
+        }
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EncounterPage().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(EncounterPage.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new EncounterPage().setVisible(true);
+//            }
+//        });
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.toedter.calendar.JDateChooser DateChooser;
+    private javax.swing.JButton createbtn;
+    private javax.swing.JButton deletebtn;
     private javax.swing.JTable encounterRegistrationTable;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JTextField encpaDoctorName;
+    private javax.swing.JTextField encpatBloodPressure;
+    private javax.swing.JTextField encpatBodyTemp;
+    private javax.swing.JTextField encpatDiagnosis;
+    private javax.swing.JTextField encpatDocId;
+    private javax.swing.JTextField encpatEncounterId;
+    private javax.swing.JTextField encpatId;
+    private javax.swing.JTextField encpatName;
+    private javax.swing.JTextField encpatSugarLevel;
+    private javax.swing.JTextField encpatSymptons;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -480,19 +596,12 @@ public class EncounterPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField patientBloodPressure;
     private javax.swing.JLabel patientBloodPressureLbl;
     private javax.swing.JButton patientHomeBtn;
     private javax.swing.JButton patientLogoutBtn;
-    private javax.swing.JTextField patientSugarLevel;
     private javax.swing.JLabel patientSugarLevelLbl;
+    private com.github.lgooddatepicker.components.TimePicker timePicker;
+    private javax.swing.JButton updatebtn;
+    private javax.swing.JButton viewbtn;
     // End of variables declaration//GEN-END:variables
 }

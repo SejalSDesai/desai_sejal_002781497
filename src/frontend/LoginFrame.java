@@ -4,6 +4,8 @@
  */
 package frontend;
 
+import backend.patient;
+import backend.patientdirectory;
 import javax.swing.JOptionPane;
 
 /**
@@ -136,6 +138,14 @@ public class LoginFrame extends javax.swing.JFrame {
         else{
             JOptionPane.showMessageDialog(null, "Invalid Account");
         }
+         for(patient p: patientdirectory.getpatientdirect()){
+                if(username.equals(p.getPwd()) && password.equals(p.getPwd())){
+                    mainFrame.setVisible(true);
+                    setVisible(false);
+                    mainFrame.AssignMenu("system_admin");
+//                    validUserFlag = 1;
+                }     
+            }
     }//GEN-LAST:event_btnLoginActionPerformed
 
     /**

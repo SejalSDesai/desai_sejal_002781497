@@ -18,6 +18,12 @@ public class EncounterHistory {
    public static void setencounterhis(ArrayList<Encounter> encounterhis){
        EncounterHistory.encounterhis = encounterhis;
    }
+   public Encounter addNewEncounter(){
+       Encounter newEncounter = new Encounter();
+       encounterhis.add(newEncounter);
+       return newEncounter;
+   }
+   
    public void delencounterdetails(Encounter en){
     encounterhis.remove(en);
        

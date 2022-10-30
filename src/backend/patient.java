@@ -8,18 +8,35 @@ package backend;
  *
  * @author sej
  */
-public class patient {
+public class patient extends person{
     
     public int patientId;
     public float patientWeight;
     public float patientHeight;
     public String bloodGroup;
-    public String patientUsername;
+//    public String patientUsername;
     public String patientpwd;
-    public vitalsigns vitalsigns = new vitalsigns();
+    
+    
+//    public vitalsigns vitalsigns = new vitalsigns();
     
     public person per = new person();
 //    public House residence = new House();
+    
+    public patient(int personID, String name, int age, long contactNo, String emailId, String gender, int houseNo, int zip, String communityName, String newCity, String state, int patientId, float patientWeight, float patientHeight, String bloodGroup, String patientpwd){
+        
+        super(personID, name, age, contactNo, emailId, gender, houseNo, zip, communityName, newCity, state);
+        
+          this.patientId = patientId;
+          this.patientWeight = patientWeight;
+          this.patientHeight = patientHeight;
+          this.bloodGroup = bloodGroup;
+          this.patientpwd = patientpwd;
+    }
+    
+    public patient(){
+    }
+    
     public person getPerson() {
         return per;
     }
@@ -60,13 +77,13 @@ public class patient {
         this.bloodGroup = bloodGroup;
     }
 
-    public String getPatientUsername() {
-        return patientUsername;
-    }
-
-    public void setPatientUsername(String patientUsername) {
-        this.patientUsername = patientUsername;
-    }
+//    public String getPatientUsername() {
+//        return patientUsername;
+//    }
+//
+//    public void setPatientUsername(String patientUsername) {
+//        this.patientUsername = patientUsername;
+//    }
 
     public String getPatientpwd() {
         return patientpwd;
@@ -76,13 +93,7 @@ public class patient {
         this.patientpwd = patientpwd;
     }
 
-    public vitalsigns getVitalsigns() {
-        return vitalsigns;
-    }
-
-    public void setVitalsigns(vitalsigns vitalsigns) {
-        this.vitalsigns = vitalsigns;
-    }
+    
     @Override
     public String toString(){
         return per.name;

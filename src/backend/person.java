@@ -15,12 +15,34 @@ public class person {
   public String emailId;
   public String gender;
   public int personId;
-  public String userName;
+//  public String userName;
   public String pwd;
   public String repwd;
+  
   public House residence = new House();
+  
+  
+//  public House house = new House();
+  
+  public Hospital hospital = new Hospital();
+          
   public person(){
   }
+  
+  public person(int personID,String name,int age,long contactNo,String emailId,String gender,int houseNo,int zip,String communityName,String newCity,String state){
+        this.personId=personID;
+        this.name=name;
+        this.age=age;
+        this.gender=gender;
+        this.contactNo=contactNo;
+        this.emailId= emailId;
+        this.residence.houseNo=houseNo;
+        this.residence.Zip=zip;
+        this.residence.communityName=communityName;
+        this.residence.newCity=newCity;
+        this.residence.state=state;
+        
+    }
 
     public String getName() {
         return name;
@@ -70,13 +92,13 @@ public class person {
         this.personId = personId;
     }
 
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+//    public String getUserName() {
+//        return userName;
+//    }
+//
+//    public void setUserName(String userName) {
+//        this.userName = userName;
+//    }
 
     public String getPwd() {
         return pwd;
@@ -105,20 +127,7 @@ public class person {
     public String toString(){
         return name;
     }
-    public person(int personID,String name,int age,long contactNo,String emaiId,String gender,int houseNo,int zip,String communityName,String newCity,String state){
-        this.personId=personID;
-        this.name=name;
-        this.age=age;
-        this.gender=gender;
-        this.contactNo=contactNo;
-        this.emailId=emailId;
-        this.residence.houseNo=houseNo;
-        this.residence.Zip=zip;
-        this.residence.communityName=communityName;
-        this.residence.newCity=newCity;
-        this.residence.state=state;
-        
-    }
+    
   }
     
     
